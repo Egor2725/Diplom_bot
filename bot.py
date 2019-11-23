@@ -1,8 +1,7 @@
 
 import telebot
 from telebot import types
-from PIL import Image
-import Pictures
+
 from time import sleep
 
 
@@ -44,10 +43,10 @@ def ans(message):
     chat_id = message.message.chat.id
     money = show_money()
     if "courses_currency" in message.data:
-        mes = message.data.split('_')[2]
-        bot.send_message(chat_id, f"{mes} сейчас равен {money[mes]} BUN")
+        mes = message.data.split('_').pop()
+        bot.send_message(chat_id, f"{mes} сейчас равен {money[mes]} BYN")
     if message.data == "return":
-        bot.send_message(chat_id, '''\n\n☑Вы в главном меню\n\n''', parse_mode='HTML', reply_markup=base())
+        bot.send_message(chat_id, '''\n\n☑Вы в главном меню\n\n''', reply_markup=base())
     if message.data == "change_city_name":
         mes = bot.send_message(chat_id, "Какой город интересует?")
         bot.register_next_step_handler(mes, weather)
