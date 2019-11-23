@@ -5,8 +5,8 @@ from telebot import types
 from time import sleep
 
 
-from Config import token
-from Keybord import base, courses, citys, start_key
+from config import token
+from keybord import base, courses, citys, start_key
 from pars_course import show_money
 from pars_weather import city_name, wheather_now, hourly_weather
 from pars_films import get_films
